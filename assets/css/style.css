@@ -2740,18 +2740,21 @@ p {
 /*===========================
       12.FOOTER css 
 ===========================*/
+.footer-area {
+  background-color: #992b2d; }
+
 .footer-title {
   font-size: 14px;
   font-weight: 700;
   line-height: 18px;
-  color: #6c6c6c; }
+  color: #fff; }
 
 .footer-support {
   padding-top: 21px; }
   .footer-support span {
     font-size: 16px;
     line-height: 24px;
-    color: #121212;
+    color: #fff;
     font-weight: 600;
     margin-top: 9px;
     display: block; }
@@ -2768,14 +2771,14 @@ p {
       margin-right: 0; }
     .social li a {
       font-size: 24px;
-      color: #6c6c6c;
+      color: #fff;
       -webkit-transition: all 0.3s ease-out 0s;
       -moz-transition: all 0.3s ease-out 0s;
       -ms-transition: all 0.3s ease-out 0s;
       -o-transition: all 0.3s ease-out 0s;
       transition: all 0.3s ease-out 0s; }
       .social li a:hover {
-        color: #992b2d; }
+        color: #000; }
 
 .footer-link {
   margin-top: 32px; }
@@ -2784,7 +2787,7 @@ p {
     .footer-link ul li a {
       font-size: 16px;
       line-height: 24px;
-      color: #121212;
+      color: #fff;
       margin-top: 16px;
       font-weight: 500;
       -webkit-transition: all 0.3s ease-out 0s;
@@ -2793,7 +2796,7 @@ p {
       -o-transition: all 0.3s ease-out 0s;
       transition: all 0.3s ease-out 0s; }
       .footer-link ul li a:hover {
-        color: #992b2d; }
+        color: #000}
 
 .footer-copyright {
   background-color: #992b2d; }
