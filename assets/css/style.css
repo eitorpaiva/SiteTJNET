@@ -111,6 +111,14 @@ p {
   width: 100%;
   height: 100%; }
 
+.titulo-escolha {
+  color: white;
+}
+
+.fundo-escolha {
+  /*background-color: white;*/
+}
+
 /*===== All Section Title ======*/
 .section-title .title {
   font-size: 50px;
@@ -2266,6 +2274,9 @@ p {
 .features-area {
   background-color: #f4f6f7; }
 
+.features-area-index {
+  background-color: #992b2d; }
+
 .single-features {
   background-color: #fff;
   padding: 40px 20px; }
@@ -2778,7 +2789,7 @@ p {
       -o-transition: all 0.3s ease-out 0s;
       transition: all 0.3s ease-out 0s; }
       .social li a:hover {
-        color: #000; }
+        color: #121212; }
 
 .footer-link {
   margin-top: 32px; }
@@ -2796,7 +2807,7 @@ p {
       -o-transition: all 0.3s ease-out 0s;
       transition: all 0.3s ease-out 0s; }
       .footer-link ul li a:hover {
-        color: #000}
+        color: #121212}
 
 .footer-copyright {
   background-color: #992b2d; }
