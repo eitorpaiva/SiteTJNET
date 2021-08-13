@@ -2650,6 +2650,7 @@ p {
 /*===========================
       8.PRICING css 
 ===========================*/
+
 .pricing-area {
   background-color: #f4f6f7; }
 
@@ -2865,6 +2866,15 @@ p {
 ===========================*/
 .contact-area {
   background-color: #f4f6f7; }
+
+.contact-anchor {
+  color: #992b2d;
+  font-weight: 600;
+}
+.contact-anchor:hover {
+  color: #992b2d;
+  font-weight: 800;
+}
 
 .form-message.error, .form-message.success {
   font-size: 16px;
