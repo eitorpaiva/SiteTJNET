@@ -54,64 +54,84 @@
       background-color: #992b2d;
     }
 
-    /*inicio search box*/
-    .autocomplete {
-      position: relative;
+    .big {
+      font-size: 1.2em;
+    }
+
+    .small {
+      font-size: .7em;
+    }
+
+    .square {
+      width: .7em;
+      height: .7em;
+      margin: .5em;
       display: inline-block;
     }
 
-    input {
-      border: 1px solid transparent;
-      background-color: #f1f1f1;
-      padding: 10px;
-      font-size: 16px;
+    /* Custom dropdown */
+    .custom-dropdown {
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+      margin: 10px; /* demo only */
     }
 
-    input[type=text] {
-      background-color: #f1f1f1;
-      width: 100%;
+    .custom-dropdown select {
+      background-color: #782425;
+      color: #fff;
+      font-size: inherit;
+      padding: .5em;
+      padding-right: 2.5em; 
+      border: 0;
+      margin: 0;
+      border-radius: 3px;
+      text-indent: 0.01px;
+      font-weight: 700;
+      text-overflow: '';
+      -webkit-appearance: button; /* hide default arrow in chrome OSX */
     }
 
-    input[type=button]{
-      border-radius: 25px;
-    }
-
-    input[type=button]:hover{
-      border-radius: 25px;
-      border-width: 2px;
-      border-color: #fff;
-    }
-
-    .autocomplete-items {
+    .custom-dropdown::before,
+    .custom-dropdown::after {
+      content: "";
       position: absolute;
-      border: 1px solid #d4d4d4;
-      border-bottom: none;
-      border-top: none;
-      z-index: 99;
-      /*position the autocomplete items to be the same width as the container:*/
-      top: 100%;
-      left: 0;
+      pointer-events: none;
+    }
+
+    .custom-dropdown::after { /*  Custom dropdown arrow */
+      height: 1em;
+      font-size: .625em;
+      line-height: 1;
+      right: 1.2em;
+      top: 50%;
+      margin-top: -.5em;
+    }
+
+    .custom-dropdown::before { /*  Custom dropdown arrow cover */
+      width: 2em;
       right: 0;
+      top: 0;
+      bottom: 0;
+      border-radius: 0 3px 3px 0;
     }
 
-    .autocomplete-items div {
-      padding: 10px;
-      cursor: pointer;
-      background-color: #fff; 
-      border-bottom: 1px solid #d4d4d4; 
+    .custom-dropdown select[disabled] {
+      color: rgba(0,0,0,.3);
     }
 
-    /*when hovering an item:*/
-    .autocomplete-items div:hover {
-      background-color: #e9e9e9; 
+    .custom-dropdown select[disabled]::after {
+      color: rgba(0,0,0,.1);
     }
 
-    /*when navigating through the items using the arrow keys:*/
-    .autocomplete-active {
-      background-color: DodgerBlue !important; 
-      color: #ffffff; 
+    .custom-dropdown::before {
+      background-color: rgba(0,0,0,.15);
     }
-    /*fim search box*/
+
+    .custom-dropdown::after {
+      color: rgba(0,0,0,.4);
+    }
+
   </style>
 </head>
 
@@ -122,17 +142,29 @@
   <section id="features" class="features-area-index pt-60 pb-100">
     <div class="container">
       <div align="center">
-        <img src="assets/images/logo.svg" alt="Logo" style="width:40%">
-        <h3 class="titulo-escolha pt-30 pb-30">Infome sua Cidade:</h3>
+        <div class="row">
+          <div class="col-md-12">
+            <img src="assets/images/logo.svg" alt="Logo">
+          </div>
+          </div>
+          <div class="row justify-content-md-center">
+            <div class="col-md-6 auto">
+            <h4 class="titulo-escolha pt-30 pb-10">Selecione sua cidade abaixo e confira os planos disponíveis para você!</h4>
+          </div>
+        </div>
         <div class="features-content">
-          <form autocomplete="off">
-            <div class="autocomplete" class="form-group">
-              <input id="myInput" class="form-control form-control-lg" type="text" name="minhaCidade" placeholder="Digite sua cidade aqui...">
-            </div>
-            <div class="features-btn rounded-buttons pt-30">
-              <input type="button" class="main-btn rounded-one" value="Enviar" onclick="botaoIndex()">
-            </div>
-          </form>
+
+          <span class="custom-dropdown big">
+            <select id="selectid" onchange="mostraCidade()">    
+              <option value="Selecione">Escolha sua cidade...</option>
+              <option value="Coxim-MS">Coxim-MS</option>
+              <option value="Costa Rica-MS">Costa Rica-MS</option>  
+              <option value="Rio Verde de Mato Grosso-MS">Rio Verde de Mato Grosso-MS</option>
+              <option value="Pedro Gomes-MS">Pedro Gomes-MS</option>
+              <option value="São Gabriel do Oeste-MS">São Gabriel do Oeste-MS</option>
+            </select>
+          </span>
+
         </div>
         <div id="infoCidade" class='row justify-content-center'>
         </div>
@@ -145,195 +177,75 @@
   <!--====== FEATRES PART ENDS ======-->
 
   <script type="text/javascript">
-    function autocomplete(inp, arr) {
-  /*the autocomplete function takes two arguments,
-  the text field element and an array of possible autocompleted values:*/
-  var currentFocus;
-  /*execute a function when someone writes in the text field:*/
-  inp.addEventListener("input", function(e) {
-    var a, b, i, val = this.value;
-    /*close any already open lists of autocompleted values*/
-    closeAllLists();
-    if (!val) { return false;}
-    currentFocus = -1;
-    /*create a DIV element that will contain the items (values):*/
-    a = document.createElement("DIV");
-    a.setAttribute("id", this.id + "autocomplete-list");
-    a.setAttribute("class", "autocomplete-items");
-    /*append the DIV element as a child of the autocomplete container:*/
-    this.parentNode.appendChild(a);
-    /*for each item in the array...*/
-    for (i = 0; i < arr.length; i++) {
-      /*check if the item starts with the same letters as the text field value:*/
-      if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
-        /*create a DIV element for each matching element:*/
-        b = document.createElement("DIV");
-        /*make the matching letters bold:*/
-        b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
-        b.innerHTML += arr[i].substr(val.length);
-        /*insert a input field that will hold the current array item's value:*/
-        b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
-        /*execute a function when someone clicks on the item value (DIV element):*/
-        b.addEventListener("click", function(e) {
-          /*insert the value for the autocomplete text field:*/
-          inp.value = this.getElementsByTagName("input")[0].value;
-          mostraCidade(inp.value);
-              /*close the list of autocompleted values,
-              (or any other open lists of autocompleted values:*/
-              closeAllLists();
-            });
-        a.appendChild(b);
-      }
-    }
 
-  });
-  /*execute a function presses a key on the keyboard:*/
-  inp.addEventListener("keydown", function(e) {
-    var x = document.getElementById(this.id + "autocomplete-list");
-    if (x) x = x.getElementsByTagName("div");
-    if (e.keyCode == 40) {
-        /*If the arrow DOWN key is pressed,
-        increase the currentFocus variable:*/
-        currentFocus++;
-        /*and and make the current item more visible:*/
-        addActive(x);
-      } else if (e.keyCode == 38) { //up
-        /*If the arrow UP key is pressed,
-        decrease the currentFocus variable:*/
-        currentFocus--;
-        /*and and make the current item more visible:*/
-        addActive(x);
-      } else if (e.keyCode == 13) {
-        /*If the ENTER key is pressed, prevent the form from being submitted,*/
-        e.preventDefault();
-        if (currentFocus > -1) {
-          /*and simulate a click on the "active" item:*/
-          if (x) x[currentFocus].click();
+    function mostraCidade(){
+      var cidade = document.getElementById('selectid').value
+      var nome = "";
+      var img = "";
+      var endereco = "";
+      var link = "";
+      if(cidade != "Selecione"){
+        if(cidade == "Coxim-MS"){
+          nome = "Coxim";
+          img = "'assets/images/cidades/cxm.svg'";
+          endereco = "Av. Virgínia Ferreira, 907<br>Flávio Garcia, 79400-000";
+          link = "'cxm.html'";
         }
+        if(cidade == "Rio Verde de Mato Grosso-MS"){
+          nome = "Rio Verde";
+          img = "'assets/images/cidades/rv.svg'";
+          endereco = "Rua Porfirio Gonçalves, 921 B<br>Centro, 79480-000";
+          link = "'rv.html'";
+        }
+        if(cidade == "Pedro Gomes-MS"){
+          nome = "Pedro Gomes";
+          img = "'assets/images/cidades/pgm.svg'";
+          endereco = "Rua Diamantino, 44<br>Centro, 79410-000";
+          link = "'pgm.html'";
+        }
+        if(cidade == "Costa Rica-MS"){
+          nome = "Costa Rica";
+          img = "'assets/images/cidades/crc.svg'";
+          endereco = "Av. José Ferreira da Costa, 1434<br>Centro, 79550-000";
+          link = "'crc.html'";
+        }
+        if(cidade == "São Gabriel do Oeste-MS"){
+          nome = "São Gabriel do Oeste";
+          img = "'assets/images/cidades/sgo.svg'";
+          endereco = "Av. Getúlio Vargas, 209<br>Centro, 79490-000";
+          link = "'sgo.html'";
+        }
+        document.getElementById("infoCidade").innerHTML = 
+        "<div id='meApague' class='col-lg-4 col-md-7 col-sm-9'><div class='single-features text-center mt-40'><div class='features-icon'><img src="+img+"></div><div class='features-content'><h4 class='features-title'><a href="+link+">"+nome+"</a></h4><p class='text'>"+endereco+"</p><div class='features-btn rounded-buttons'><a class='main-btn rounded-one' href="+link+">CLIQUE AQUI</a></div></div></div></div>";
+      }else{
+        document.getElementById("meApague").remove();
       }
-    });
-  function addActive(x) {
-    /*a function to classify an item as "active":*/
-    if (!x) return false;
-    /*start by removing the "active" class on all items:*/
-    removeActive(x);
-    if (currentFocus >= x.length) currentFocus = 0;
-    if (currentFocus < 0) currentFocus = (x.length - 1);
-    /*add class "autocomplete-active":*/
-    x[currentFocus].classList.add("autocomplete-active");
-  }
-  function removeActive(x) {
-    /*a function to remove the "active" class from all autocomplete items:*/
-    for (var i = 0; i < x.length; i++) {
-      x[i].classList.remove("autocomplete-active");
     }
-  }
-  function closeAllLists(elmnt) {
-    /*close all autocomplete lists in the document,
-    except the one passed as an argument:*/
-    var x = document.getElementsByClassName("autocomplete-items");
-    for (var i = 0; i < x.length; i++) {
-      if (elmnt != x[i] && elmnt != inp) {
-        x[i].parentNode.removeChild(x[i]);
-      }
-    }
-  }
-  /*execute a function when someone clicks in the document:*/
-  document.addEventListener("click", function (e) {
-    closeAllLists(e.target);
-  });
-}
+  </script>
 
-/*An array containing all the country names in the world:*/
-var countries = ["Costa Rica-MS","Coxim-MS","Pedro Gomes-MS","Rio Verde de Mato Grosso-MS","São Gabriel do Oeste-MS"];
+  <!--====== jquery js ======-->
+  <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
+  <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
 
-/*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
-autocomplete(document.getElementById("myInput"), countries);
-
-function botaoIndex(){
-  var cidadeEscolhida = document.getElementById("myInput").value;
-
-  if(cidadeEscolhida == "Coxim-MS"){
-    window.location.replace("cxm.html");
-  }
-  if(cidadeEscolhida == "Rio Verde de Mato Grosso-MS"){
-    window.location.replace("rv.html");
-  }
-  if(cidadeEscolhida == "Pedro Gomes-MS"){
-    window.location.replace("pgm.html");   
-  }
-  if(cidadeEscolhida == "Costa Rica-MS"){
-    window.location.replace("crc.html");
-  }
-  if(cidadeEscolhida == "São Gabriel do Oeste-MS"){
-    window.location.replace("sgo.html");
-  }
-}
-
-function mostraCidade(cidade){
-  var nome = "";
-  var img = "";
-  var endereco = "";
-  var link = "";
-
-  if(cidade == "Coxim-MS"){
-    nome = "Coxim";
-    img = "'assets/images/cidades/cxm.svg'";
-    endereco = "Av. Virgínia Ferreira, 907<br>Flávio Garcia, 79400-000";
-    link = "'cxm.html'";
-  }
-  if(cidade == "Rio Verde de Mato Grosso-MS"){
-    nome = "Rio Verde";
-    img = "'assets/images/cidades/rv.svg'";
-    endereco = "Rua Porfirio Gonçalves, 921 B<br>Centro, 79480-000";
-    link = "'rv.html'";
-  }
-  if(cidade == "Pedro Gomes-MS"){
-    nome = "Pedro Gomes";
-    img = "'assets/images/cidades/pgm.svg'";
-    endereco = "Rua Diamantino, 44<br>Centro, 79410-000";
-    link = "'pgm.html'";
-  }
-  if(cidade == "Costa Rica-MS"){
-    nome = "Costa Rica";
-    img = "'assets/images/cidades/crc.svg'";
-    endereco = "Av. José Ferreira da Costa, 1434<br>Centro, 79550-000";
-    link = "'crc.html'";
-  }
-  if(cidade == "São Gabriel do Oeste-MS"){
-    nome = "São Gabriel do Oeste";
-    img = "'assets/images/cidades/sgo.svg'";
-    endereco = "Av. Getúlio Vargas, 209<br>Centro, 79490-000";
-    link = "'sgo.html'";
-  }
-  document.getElementById("infoCidade").innerHTML = 
-  "<div id='meApague' class='col-lg-4 col-md-7 col-sm-9'><div class='single-features text-center mt-40'><div class='features-icon'><img src="+img+"></div><div class='features-content'><h4 class='features-title'><a href="+link+">"+nome+"</a></h4><p class='text'>"+endereco+"</p><div class='features-btn rounded-buttons'><a class='main-btn rounded-one' href="+link+">CLIQUE AQUI</a></div></div></div></div>"; 
-}
-</script>
-
-<!--====== jquery js ======-->
-<script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
-<script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
-
-<!--====== Bootstrap js ======-->
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/popper.min.js"></script>
+  <!--====== Bootstrap js ======-->
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/popper.min.js"></script>
 
 
-<!--====== Images Loaded js ======-->
-<script src="assets/js/imagesloaded.pkgd.min.js"></script>
+  <!--====== Images Loaded js ======-->
+  <script src="assets/js/imagesloaded.pkgd.min.js"></script>
 
-<!--====== Scrolling Nav js ======-->
-<script src="assets/js/jquery.easing.min.js"></script>
-<script src="assets/js/scrolling-nav.js"></script>
-
-
-<!--====== Slick js ======-->
-<script src="assets/js/slick.min.js"></script>
+  <!--====== Scrolling Nav js ======-->
+  <script src="assets/js/jquery.easing.min.js"></script>
+  <script src="assets/js/scrolling-nav.js"></script>
 
 
-<!--====== Main js ======-->
-<script src="assets/js/main.js"></script>
+  <!--====== Slick js ======-->
+  <script src="assets/js/slick.min.js"></script>
+
+
+  <!--====== Main js ======-->
+  <script src="assets/js/main.js"></script>
 
 </body>
 
