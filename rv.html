@@ -944,7 +944,7 @@
                         <h4 class="contact-title">Adoraríamos ler o que você tem mente! Vamos conversar.</h4>
                         <p class="text">Nós da TJNET estamos sempre abertos a novas sugestões e opiniões de nossos clientes. Certamente iremos avaliar a sua pergunta ou sugestão com toda a atenção necessária. <br> <br> Se sua dúvida é corriqueira, considere conferir nossa página de <a class="contact-anchor" href="faq.html">FAQ</a>! Caso não encontre as respostas de sua pergunta, envie-nos uma mensagem ou entre em contato conosco pelo 0800.</p>
                         <ul class="contact-info">
-                            <li><i class="lni-money-location"></i> Av. Virgínia Ferreira, 907, Flávio Garcia, Rio Verde do Mato Grosso-MS, 79400-000</li>
+                            <li><i class="lni-money-location"></i> Rua Porfirio Gonçalves, 921 B, Centro, Rio Verde do Mato Grosso-MS, 79480-000</li>
                             <li><i class="lni-phone-handset"></i> 0800-970-9767</li>
                             <li><i class="lni-timer"></i><strong> Call Center:</strong> 07:00 - 22:00 <strong>seg. à sáb.</strong></li>
                             <li><i class="lni-timer"></i><strong> Call Center:</strong> 08:00 - 20:00 <strong>dom. e feriados</strong></li>
@@ -1072,6 +1072,70 @@
     
 
     <!--====== jquery js ======-->
+    <script type="text/javascript">
+        function whatsapp(){
+            var planos = document.querySelectorAll("#plano");
+            var modalidade = "";
+            var links = document.querySelectorAll("#wpp");
+            for (var i = 0; i < planos.length; i++) {
+                console.log(i);
+                console.log(modalidade);
+                if(i < 5){
+                    modalidade = "Residencial";
+                }
+                if(i > 5 && i <= 11){
+                    modalidade = "Empresarial";
+                }
+                if(i > 11){
+                    modalidade = "Rural";
+                }
+
+                if(planos[i].textContent == "5 Mb"){
+                    links[i].href = "https://api.whatsapp.com/send?phone=558009709767&text=Olá, vim pelo site, sou de Rio Verde e tenho interesse em contratar um plano de "+planos[i].textContent+" "+modalidade;
+                }
+
+                if(planos[i].textContent == "8 Mb"){
+                    links[i].href = "https://api.whatsapp.com/send?phone=558009709767&text=Olá, vim pelo site, sou de Rio Verde e tenho interesse em contratar um plano de "+planos[i].textContent+" "+modalidade;
+                }
+
+                if(planos[i].textContent == "10 Mb"){
+                    links[i].href = "https://api.whatsapp.com/send?phone=558009709767&text=Olá, vim pelo site, sou de Rio Verde e tenho interesse em contratar um plano de "+planos[i].textContent+" "+modalidade;
+                }
+
+                if(planos[i].textContent == "20 Mb"){
+                    links[i].href = "https://api.whatsapp.com/send?phone=558009709767&text=Olá, vim pelo site, sou de Rio Verde e tenho interesse em contratar um plano de "+planos[i].textContent+" "+modalidade;
+                }
+
+                if(planos[i].textContent == "30 Mb"){
+                    links[i].href = "https://api.whatsapp.com/send?phone=558009709767&text=Olá, vim pelo site, sou de Rio Verde e tenho interesse em contratar um plano de "+planos[i].textContent+" "+modalidade;
+                }
+
+                if(planos[i].textContent == "35 Mb"){
+                    links[i].href = "https://api.whatsapp.com/send?phone=558009709767&text=Olá, vim pelo site, sou de Rio Verde e tenho interesse em contratar um plano de "+planos[i].textContent+" "+modalidade;
+                }
+                if(planos[i].textContent == "50 Mb"){
+                    links[i].href = "https://api.whatsapp.com/send?phone=558009709767&text=Olá, vim pelo site, sou de Rio Verde e tenho interesse em contratar um plano de "+planos[i].textContent+" "+modalidade;
+                }
+
+                if(planos[i].textContent == "80 Mb"){
+                    links[i].href = "https://api.whatsapp.com/send?phone=558009709767&text=Olá, vim pelo site, sou de Rio Verde e tenho interesse em contratar um plano de "+planos[i].textContent+" "+modalidade;
+                }
+
+                if(planos[i].textContent == "120 Mb"){
+                    links[i].href = "https://api.whatsapp.com/send?phone=558009709767&text=Olá, vim pelo site, sou de Rio Verde e tenho interesse em contratar um plano de "+planos[i].textContent+" "+modalidade;
+                }
+
+                if(planos[i].textContent == "200 Mb"){
+                    links[i].href = "https://api.whatsapp.com/send?phone=558009709767&text=Olá, vim pelo site, sou de Rio Verde e tenho interesse em contratar um plano de "+planos[i].textContent+" "+modalidade;
+                }
+
+                if(planos[i].textContent == "300 Mb"){
+                    links[i].href = "https://api.whatsapp.com/send?phone=558009709767&text=Olá, vim pelo site, sou de Rio Verde e tenho interesse em contratar um plano de "+planos[i].textContent+" "+modalidade;
+                }
+            }
+        }
+    </script>
+
     <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
     <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
 
