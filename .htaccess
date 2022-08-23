@@ -1,0 +1,29 @@
+# For security reasons, Option followsymlinks cannot be overridden.
+#Options +FollowSymLinks -MultiViews
+Options +SymLinksIfOwnerMatch -MultiViews
+# Turn mod_rewrite on
+RewriteEngine On
+RewriteBase /
+# Evitar POST de receber regra
+RewriteCond %{REQUEST_METHOD} POST
+RewriteRule ^ - [L]
+
+## hide .php extension
+# To externally redirect /dir/foo.php to /dir/foo
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.php [NC]
+RewriteRule ^ %1 [R,L,NC]
+
+## To internally redirect /dir/foo to /dir/foo.php
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^ %{REQUEST_URI}.php [L]
+
+## hide .html extension
+# To externally redirect /dir/foo.html to /dir/foo
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.html [NC]
+RewriteRule ^ %1 [R,L,NC]
+
+## To internally redirect /dir/foo to /dir/foo.html
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^ %{REQUEST_URI}.html [L]
+
+ErrorDocument 404 '/site/404.html'

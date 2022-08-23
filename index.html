@@ -1,0 +1,929 @@
+<!doctype html>
+<html prefix="og: https://ogp.me/ns#" lang="pt-br" >
+
+<!--Para que o aviso da BrasilTecPar volte a aparecer, descomente as seguintes estruturas:
+ - body com a função bodyAvisoTest();
+ - Modal Aviso em HTML (estrutura);
+ - Modal Aviso Trigger (trigger auxiliar invisível);
+ - As funções bodyAviso e bodyAvisoTest onde quer que sejam chamadas ou criadas.
+-->
+
+<head>
+
+  <!--====== Required meta tags ======-->
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Bem vindo a TJNET, escolha sua cidade:">
+  <meta property="og:url" content="https://redetjnet.com.br/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Página Inicial">
+  <meta property="og:description" content="Bem vindo a TJNET, escolha sua cidade:">
+  <meta property="og:image" content="https://redetjnet.com.br/assets/images/favicon.png">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" co">
+  <meta property="twitter:url" content="https://redetjnet.com.br/">
+  <meta name="twitter:title" content="Página Inicial">
+  <meta name="twitter:description" content="Bem vindo a TJNET, escolha sua cidade:">
+  <meta name="twitter:image" content="https://redetjnet.com.br/assets/images/favicon.png">
+
+
+
+  <!--====== Title ======-->
+  <title>Rede TJNET</title>
+
+  <!--====== Favicon Icon ======-->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="assets/images/favicon/site.webmanifest">
+  <link rel="mask-icon" href="assets/images/favicon/safari-pinned-tab.svg" color="#992b2d">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
+  <!--====== Bootstrap css ======-->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+  <!--====== Slick css ======-->
+  <link rel="stylesheet" href="assets/css/slick.css">
+
+  <!--====== Magnific Popup css ======-->
+  <link rel="stylesheet" href="assets/css/magnific-popup.css">
+
+  <!--====== Line Icons css ======-->
+  <link rel="stylesheet" href="assets/css/LineIcons.css">
+
+  <!--====== Font Awesome Icons css ======-->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+  <!--====== Default css ======-->
+  <link rel="stylesheet" href="assets/css/default.css">
+
+  <!--====== Style css ======-->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style type="text/css">
+    /* Cookie */
+    .wrapper{
+      position: relative;
+      z-index: +8;
+      bottom: 3800px;
+      max-width: 380px;
+      background: #fff;
+      padding: 25px 25px 30px 25px;
+      border-radius: 15px;
+      box-shadow: 1px 7px 14px -5px rgba(0,0,0,0.15);
+      text-align: center;
+    }
+
+    .outro{
+      max-width: 500px;
+    }
+
+    @media (min-width: 768px) and (max-width: 991px) {
+      .wrapper {
+        top: -6050px; } }
+        @media (min-width: 576px) and (max-width: 767px) {
+          .wrapper {
+            top: -5800px; } }
+
+        @media (max-width: 575px) {
+          .wrapper {
+            top: -6600px; } }
+
+            .wrapper.hide{
+              opacity: 0;
+              pointer-events: none;
+              transform: scale(0.8);
+              transition: all 0.3s ease;
+            }
+            ::selection{
+              color: #fff;
+              background: #a70800;
+            }
+            .wrapper img{
+              max-width: 90px;
+            }
+            .content header{
+              font-size: 25px;
+              padding-bottom: 12px;
+              font-weight: 600;
+            }
+            .content{
+              margin-top: 10px;
+            }
+            .content p{
+              color: #858585;
+              margin: 5px 0 20px 0;
+            }
+            .content .buttons{
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+            .buttons button{
+              padding: 10px 20px;
+              border: none;
+              outline: none;
+              color: #fff;
+              font-size: 16px;
+              font-weight: 500;
+              border-radius: 5px;
+              background: #a70800;
+              cursor: pointer;
+              transition: all 0.3s ease;
+            }
+            .buttons button:hover{
+              transform: scale(0.97);
+            }
+            .buttons .item{
+              margin: 0 10px;
+            }
+            .buttons a{
+              color: #a70800;
+            }
+
+            .big {
+              font-size: 1.2em;
+            }
+
+            .small {
+              font-size: .7em;
+            }
+
+            .square {
+              width: .7em;
+              height: .7em;
+              margin: .5em;
+              display: inline-block;
+            }
+
+            /* Custom dropdown */
+            .custom-dropdown {
+              position: relative;
+              display: inline-block;
+              vertical-align: middle;
+            }
+
+            .custom-dropdown select {
+              background-color: #002D57;
+              color: #fff;
+              font-size: inherit;
+              padding: .5em;
+              padding-right: 2.5em; 
+              border: 0;
+              margin: 0;
+              border-radius: 3px;
+              text-indent: 0.01px;
+              font-weight: 700;
+              text-overflow: '';
+              -webkit-appearance: button; /* hide default arrow in chrome OSX */
+            }
+
+            .custom-dropdown::before,
+            .custom-dropdown::after {
+              content: "";
+              position: absolute;
+              pointer-events: none;
+            }
+
+            .custom-dropdown::after { /*  Custom dropdown arrow */
+              height: 1em;
+              font-size: .625em;
+              line-height: 1;
+              right: 1.2em;
+              top: 50%;
+              margin-top: -.5em;
+            }
+
+            .custom-dropdown::before { /*  Custom dropdown arrow cover */
+              width: 2em;
+              right: 0;
+              top: 0;
+              bottom: 0;
+              border-radius: 0 3px 3px 0;
+            }
+
+            .custom-dropdown select[disabled] {
+              color: rgba(0,0,0,.3);
+            }
+
+            .custom-dropdown select[disabled]::after {
+              color: rgba(0,0,0,.1);
+            }
+
+            .custom-dropdown::before {
+              background-color: rgba(0,0,0,.15);
+            }
+
+            .custom-dropdown::after {
+              color: rgba(0,0,0,.4);
+            }
+
+            .blur{
+              filter: blur(8px);
+              -webkit-filter: blur(8px);
+            }
+
+            .corrigeBtn{
+              color:#a70800;
+
+            }
+            .corrigeBtn:hover{
+              color:white;
+            }
+
+          </style>
+
+        </head>
+        <!--<body onload="bodyAvisoTest()">-->
+        <body>
+          <div class="blur">
+            <!--====== HEADER ONE PART START ======-->
+
+            <header id="home" class="header-area">
+              <div class="navbar-area navbar-one navbar-transparent">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <nav class="navbar navbar-expand-lg">
+                        <a class="navbar-brand" href="#">
+                          <img src="assets/images/logo.svg" alt="Logo" style="width: 50%;">
+                          <img src="assets/images/amigo.png" alt="Logo" style="width: 50%;">
+                        </a>
+
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarOne" aria-controls="navbarOne" aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="toggler-icon"></span>
+                          <span class="toggler-icon"></span>
+                          <span class="toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse sub-menu-bar" id="navbarOne">
+                          <ul class="navbar-nav m-auto">
+                            <li class="nav-item active">
+                              <a class="page-scroll" href="#home">Início</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="page-scroll" href="#about">Sobre</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="page-scroll" href="#features">Planos</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="page-scroll" href="#cobertura">Cobertura</a>
+                            </li>
+                            <li class="nav-item">
+                              <a href="faq.html">FAQ</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="light" target="_blank" href="https://portal.redetjnet.com.br">Portal</a>
+                            </li>
+                            <li class="nav-item">
+                              <span class="custom-dropdown mt-20 ml-20">
+                                <select id="selectid" onchange="mostraCidade()">    
+                                  <option value="Selecione">Escolha sua cidade...</option>
+                                  <option value="Coxim-MS">Coxim-MS</option>
+                                  <option value="Costa Rica-MS">Costa Rica-MS</option>  
+                                  <option value="Rio Verde de Mato Grosso-MS">Rio Verde de Mato Grosso-MS</option>
+                                  <option value="Pedro Gomes-MS">Pedro Gomes-MS</option>
+                                  <option value="São Gabriel do Oeste-MS">São Gabriel do Oeste-MS</option>
+                                </select>
+                              </span>
+                            </li>
+                          </ul>
+                        </div>
+                      </nav> <!-- navbar -->
+                    </div>
+                  </div> <!-- row -->
+                </div> <!-- container -->
+              </div>
+              <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="6000">
+                <ol class="carousel-indicators">
+                  <li data-target="#carousel" data-slide-to="0" class="active"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                  <div class="carousel-item active">
+                    <a class="page-scroll" href="#features">
+                    <!-- 
+                    If you need more browser support use https://scottjehl.github.io/picturefill/
+                    If a picture looks blurry on a retina device you can add a high resolution like this
+                    <source srcset="img/blog-post-1000x600-2.jpg, blog-post-1000x600-2@2x.jpg 2x" media="(min-width: 768px)">
+
+                    What image sizes should you use? This can help - https://codepen.io/JacobLett/pen/NjramL
+                  -->
+                  <picture>
+                    <source srcset="assets/images/carousel/1/2000x500.jpg" media="(min-width: 1400px)">
+                      <source srcset="assets/images/carousel/1/1400x500.jpg" media="(min-width: 769px)">
+                       <source srcset="assets/images/carousel/1/800x500.jpg" media="(min-width: 577px)">
+                        <img srcset="assets/images/carousel/1/600x500.jpg" alt="responsive image" class="d-block img-fluid">
+                      </picture>
+                    </a>
+                  </div>
+                    </div>
+                    <!-- /.carousel-inner -->
+                    <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+                  <!-- /.carousel -->
+                  <!-- /.container -->
+
+                </header>
+
+                <!--====== HEADER ONE PART ENDS ======-->
+
+                <!--====== FEATRES PART START ======-->
+
+                <section id="features" class="features-area pt-60 pb-100">
+                  <div class="container">
+                    <div class="row justify-content-center">
+                      <div class="col-lg-3 col-md-7 col-sm-9">
+                        <div class="single-features text-center mt-40">
+                          <div class="features-icon">
+                            <i class="lni-home"></i>
+                            <img class="shape" src="assets/images/f-shape-1.svg" alt="Shape">
+                          </div>
+                          <div class="features-content">
+                            <h4 class="features-title"><a data-toggle="modal" data-target="#myModalPlanos" value="Open">Planos Residenciais</a></h4>
+                            <p class="text">Para clientes pessoa física, cujo uso é de cunho pessoal, geralmente atrelado
+                              a streaming, jogos e redes sociais em geral.<br><br></p>
+                              <div class="features-btn rounded-buttons">
+                                <a class="main-btn rounded-one"
+                                style="color:#a70800" onmouseover="this.style.color='white';" onmouseout="this.style.color='#a70800';"
+                                data-toggle="modal" data-target="#myModalPlanos" value="Open">SAIBA MAIS</a>
+                              </div>
+                            </div>
+                          </div> <!-- single features -->
+                        </div>
+                        <div class="col-lg-3 col-md-7 col-sm-9">
+                          <div class="single-features text-center mt-40">
+                            <div class="features-icon">
+                              <i class="lni-construction"></i>
+                              <img class="shape" src="assets/images/f-shape-1.svg" alt="Shape">
+                            </div>
+                            <div class="features-content">
+                              <h4 class="features-title"><a data-toggle="modal" data-target="#myModalPlanos" value="Open">Planos Empresariais</a></h4>
+                              <p class="text">Para clientes pessoa jurídica, que necessitam de um atendimento especial,
+                                para o desempenho de funções empresariais, como escritórios e afins.</p>
+                                <div class="features-btn rounded-buttons">
+                                  <a class="main-btn rounded-one"
+                                  style="color:#a70800" onmouseover="this.style.color='white';" onmouseout="this.style.color='#a70800';"
+                                  data-toggle="modal" data-target="#myModalPlanos" value="Open">SAIBA MAIS</a>
+                                </div>
+                              </div>
+                            </div> <!-- single features -->
+                          </div>
+                          <div class="col-lg-3 col-md-7 col-sm-9">
+                            <div class="single-features text-center mt-40">
+                              <div class="features-icon">
+                                <i class="fas fa-broadcast-tower"></i>
+                                <img class="shape" src="assets/images/f-shape-1.svg" alt="Shape">
+                              </div>
+                              <div class="features-content">
+                                <h4 class="features-title"><a data-toggle="modal" data-target="#myModalPlanos" value="Open">Planos<br>Rurais</a></h4>
+                                <p class="text">Para clientes que moram em propriedades rurais, onde a fibra óptica geralmente não atende. 
+                                  Focados tanto em uso residencial quanto empresarial.</p>
+                                  <div class="features-btn rounded-buttons">
+                                    <a class="main-btn rounded-one"
+                                    style="color:#a70800" onmouseover="this.style.color='white';" onmouseout="this.style.color='#a70800';"
+                                    data-toggle="modal" data-target="#myModalPlanos" value="Open">SAIBA MAIS</a>
+                                  </div>
+                                </div>
+                              </div> <!-- single features -->
+                            </div>
+                            <div class="col-lg-3 col-md-7 col-sm-9">
+                              <div class="single-features text-center mt-40">
+                                <div class="features-icon">
+                                  <i class="lni-cup"></i>
+                                  <img class="shape" src="assets/images/f-shape-1.svg" alt="Shape">
+                                </div>
+                                <div class="features-content">
+                                  <h4 class="features-title"><a class="" href="dedicado.html">Planos Dedicados</a></h4>
+                                  <p class="text">Para clientes que necessitam de atendimento expresso e 
+                                    serviço de monitoramento personalizado pela nossa equipe de redes.</p>
+                                    <div class="features-btn rounded-buttons">
+                                      <a class="main-btn rounded-one " href="dedicado.html">SAIBA MAIS</a>
+                                    </div>
+                                  </div>
+                                </div> <!-- single features -->
+                              </div>
+                            </div> <!-- row -->
+                          </div> <!-- container -->
+                        </section>
+
+                        <!--====== FEATRES PART ENDS ======-->
+
+                        <!--====== ABOUT THREE PART START ======-->
+
+                        <section id="about" class="about-area pt-70 pb-100">
+                          <div class="container">
+                            <div class="row">
+                              <div class="col-lg-6">
+                                <div class="about-feature mt-30">
+                                  <div class="about-feature-image">
+                                    <img src="assets/images/fibra.png" alt="feature">
+                                  </div>
+                                  <div class="about-feature-content">
+                                    <h2 class="feature-title">O futuro está aqui! Fibra Óptica!</h2>
+                                    <p class="text">Tecnologia de ponta para atender toda a cidade com altas velocidades e largura de banda.</p>
+                                  </div>
+                                </div> <!-- about feature three -->
+                              </div>
+                              <div class="col-lg-6">
+                                <div class="about-feature-items d-sm-flex mt-30">
+                                  <div class="feature-items-icon">
+                                    <img src="assets/images/planos-icon.png" alt="Icon">
+                                  </div>
+                                  <div class="feature-items-content media-body">
+                                    <h5 class="items-title">Planos pensados em você!</h5>
+                                    <p class="text">Planos para todo tipo de cliente e para todo tipo de uso, seja você pessoa física ou jurídica!</p>
+                                  </div>
+                                </div> <!-- about feature items -->
+                                <div class="about-feature-items d-sm-flex mt-30">
+                                  <div class="feature-items-icon">
+                                    <img src="assets/images/tecnico-icon.png" alt="Icon">
+                                  </div>
+                                  <div class="feature-items-content media-body">
+                                    <h5 class="items-title">Suporte Técnico Especializado</h5>
+                                    <p class="text">Equipe especializada para lhe atender na sua residência após contato com o call center!</p>
+                                  </div>
+                                </div> <!-- about feature items -->
+                                <div class="about-feature-items d-sm-flex mt-30">
+                                  <div class="feature-items-icon">
+                                    <img src="assets/images/suporte-icon.png" alt="Icon">
+                                  </div>
+                                  <div class="feature-items-content media-body">
+                                    <h5 class="items-title">Suporte Telefônico</h5>
+                                    <p class="text">À disposição para melhor lhe atender de segunda a sábado das 07:00 às 22:00
+                                      e em domingo e feriados das 08:00 às 20:00.</p>
+                                    </div>
+                                  </div> <!-- about feature items -->
+                                  <div class="about-feature-items d-sm-flex mt-30">
+                                    <div class="feature-items-icon">
+                                      <img src="assets/images/b2b-icon.png" alt="Icon">
+                                    </div>
+                                    <div class="feature-items-content media-body">
+                                      <h5 class="items-title">Business-to-Business</h5>
+                                      <p class="text">Também possuímos planos e serviços especiais para empresas. Venha conferir!</p>
+                                    </div>
+                                  </div> <!-- about feature items -->
+                                </div>
+                              </div> <!-- row -->
+                            </div> <!-- container -->
+                          </section>
+
+                          <!--====== ABOUT THREE PART ENDS ======-->
+
+                          <!--====== CONTACT PART START ======-->
+
+                          <section id="cobertura" class="contact-area pt-95 pb-100">
+                            <div class="container">
+                              <div class="row justify-content-center">
+                                <div class="col-lg-6">
+                                  <div class="section-title text-center pb-20">
+                                    <h4 class="title">Área de Cobertura</h4>
+                                    <p class="text">Locais onde os clientes trafegam na velocidade da luz!</p>
+                                  </div> <!-- section title -->
+                                </div>
+                              </div> <!-- row -->
+                              <div class="row">
+                                <div class="col-lg-6">
+                                  <div class="contact mt-30">
+                                    <p class="text">Nossa área de cobertura cobre as maiores cidades da região norte sul-mato-grossense. <br> <br>
+                                      <div class="aviso">
+                                        <li>Coxim</li>
+                                        <li>Costa Rica</li>
+                                        <li>Pedro Gomes</li>
+                                        <li>Rio Verde de Mato Grosso</li>
+                                        <li>São Gabriel do Oeste</li>
+                                      </div>
+                                      <br>
+                                      Caso queira saber a disponibilidade de planos para sua região, considere selecionar a sua cidade no menu desta página!<br><br>
+
+                                      Caso não encontre as respostas de sua pergunta, envie-nos uma mensagem ou entre em contato conosco pelo 0800.</p>
+                                      <ul class="contact-info">
+                                        <li><i class="lni-phone-handset"></i> 0800-645-4200</li>
+ 
+                                        <li><i class="lni-timer"></i><strong> Call Center:</strong> 07:00 - 00:00 <strong>seg. à sex.</strong>
+                                        <li><i class="lni-timer"></i><strong> Call Center:</strong> 08:00 - 22:00 <strong>sáb. e dom.</strong></li>
+                                        <li><i class="lni-envelope"></i> atendimento@sejaamigo.com.br</li>
+                                      </ul>
+                                    </div> <!-- contact -->
+                                  </div>
+                                  <div class="col-lg-6">
+                                    <div class="map-responsive mt-30">
+                                      <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1HJaAm92qss7-e-TZtAjg5ts554EsEDOV"
+                                      width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                    </div>
+                                  </div>
+                                </div> <!-- row -->
+                              </div> <!-- container -->
+                            </section>
+
+                            <!--====== CONTACT PART ENDS ======-->
+
+
+
+                            <!--====== TESTIMONIAL PART START ======-->
+
+                            <section class="testimonial-area pt-95 pb-100">
+                              <div class="container">
+                                <div class="row justify-content-center">
+                                  <div class="col-lg-6">
+                                    <div class="section-title text-center pb-20">
+                                      <h4 class="title">Depoimentos</h4>
+                                      <p class="text">Um pouco da opinião de alguns dos nossos clientes!</p>
+                                    </div> <!-- section title -->
+                                  </div>
+                                </div> <!-- row -->
+
+                                <div class="row testimonial-active">
+                                  <div class="col-lg-6">
+                                    <div class="single-testimonial mt-30">
+                                      <div class="testimonial-author d-sm-flex align-items-center">
+                                        <div class="author-image">
+                                          <img src="assets/images/author-1.jpg" alt="Author">
+                                        </div>
+                                        <div class="author-name media-body">
+                                          <h6 class="name">Alessandro Araujo</h6>
+                                          <span class="sub-title">Cliente</span>
+                                        </div>
+                                      </div>
+                                      <div class="testimonial-text">
+                                        <p class="text">Otimo, Internet sem igual de qualidade, otimo lugar para trabalho.</p>
+                                      </div>
+                                    </div> <!-- single testimonial -->
+                                  </div>
+                                  <div class="col-lg-6">
+                                    <div class="single-testimonial mt-30">
+                                      <div class="testimonial-author d-sm-flex align-items-center">
+                                        <div class="author-image">
+                                          <img src="assets/images/author-2.jpg" alt="Author">
+                                        </div>
+                                        <div class="author-name media-body">
+                                          <h6 class="name">Filha do Altíssimo</h6>
+                                          <span class="sub-title">Cliente</span>
+                                        </div>
+                                      </div>
+                                      <div class="testimonial-text">
+                                        <p class="text">Fui muito bem atendida. Equipe está de parabéns. Combinaram de instalar minha internet em uma data e horário e foram pontuais. O serviço está condizente com o esperado.</p>
+                                      </div>
+                                    </div> <!-- single testimonial -->
+                                  </div>
+                                  <div class="col-lg-6">
+                                    <div class="single-testimonial mt-30">
+                                      <div class="testimonial-author d-sm-flex align-items-center">
+                                        <div class="author-image">
+                                          <img src="assets/images/author-3.jpg" alt="Author">
+                                        </div>
+                                        <div class="author-name media-body">
+                                          <h6 class="name">Cida Souza</h6>
+                                          <span class="sub-title">Cliente</span>
+                                        </div>
+                                      </div>
+                                      <div class="testimonial-text">
+                                        <p class="text">Por que são expoentes profissionais.</p>
+                                      </div>
+                                    </div> <!-- single testimonial -->
+                                  </div>
+                                </div> <!-- row -->
+                                <p class="text aviso pt-50 text-center">
+                                  *Depoimentos retirados diretamente dos Comentários do Google.<br>
+                                  Imagem de perfil preservada por questões de privacidade.
+                                </p>
+                              </div> <!-- container -->
+                            </section>
+
+                            <!--====== TESTIMONIAL PART ENDS ======-->
+
+                            <!--====== FOOTER PART START ======-->
+
+                            <footer id="footer" class="footer-area">
+                              <div class="footer-widget pt-70 pb-100">
+                                <div class="container">
+                                  <div class="row">
+                                    <div class="col-lg-12">
+                                      <div class="footer-logo-support d-md-flex align-items-end justify-content-between">
+                                        <div class="footer-logo d-flex align-items-end pt-30">
+                                          <a href="index.html"><img src="assets/images/logo.svg" alt="Logo"></a>
+                                        </div> <!-- footer logo -->
+                                        <div class="footer-logo d-flex align-items-end pt-30">
+                                          <a href="index.html"><img src="assets/images/amigo.png" alt="Logo" style="width: 80%"></a>
+                                        </div> <!-- footer logo -->
+                                      </div> <!-- footer logo support -->
+                                    </div>
+                                  </div> <!-- row -->
+                                  <div class="row">
+                                    <div class="col-xl-6 col-lg-4 col-sm-12">
+                                      <div class="footer-support ">
+                                        <span class="number">0800-645-4200</span>
+                                        <span class="mail">atendimento@sejaamigo.com.br</span>
+                                      </div>
+                                      <ul class="social">
+                                        <li><a href="https://www.facebook.com/redetjnet"><i class="lni-facebook-filled"></i></a></li>
+                                        <li><a href="https://www.instagram.com/redetjnet"><i class="lni-instagram-original"></i></a></li>
+                                        <li><a href="https://api.whatsapp.com/send?1=pt_BR&phone=5508006454200"><i class="lni-whatsapp"></i></a></li>
+                                      </ul>
+                                    </div>
+                                    <div class="col-xl-2 col-lg-2 col-sm-4">
+                                      <div class="footer-link">
+                                        <h6 class="footer-title">Empresa</h6>
+                                        <ul>
+                                          <li><a class="page-scroll" href="#about">Sobre</a></li>
+                                          <li><a class="page-scroll" href="#features">Planos</a></li>
+                                          <li><a class="page-scroll" href="#cobertura">Cobertura</a></li>
+                                        </ul>
+                                      </div> <!-- footer link -->
+                                    </div>
+                                    <div class="col-xl-2 col-lg-3 col-sm-4">
+                                      <div class="footer-link">
+                                        <h6 class="footer-title">Produtos e Serviços</h6>
+                                        <ul>
+                                          <li><a class="page-scroll" href="#about">Serviços</a></li>
+                                          <li><a class="" href="dedicado.html">Business</a></li>
+                                        </ul>
+                                      </div> <!-- footer link -->
+                                    </div>
+                                    <div class="col-xl-2 col-lg-3 col-sm-4">
+                                      <div class="footer-link">
+                                        <h6 class="footer-title">Ajuda & Suporte</h6>
+                                        <ul>
+                                          <li><a class="" href="https://api.whatsapp.com/send?1=pt_BR&phone=5508006454200">Central de Suporte</a></li>
+                                          <li><a class="" href="faq.html">FAQ</a></li>
+                                        </ul>
+                                      </div> <!-- footer link -->
+                                    </div>
+                                  </div> <!-- row -->
+                                </div> <!-- container -->
+                              </div> <!-- footer widget -->
+                                <div class="footer-copyright">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="copyright text-center">
+                                                    <p class="text">© 2021 Eitor Bernardes de Paiva | Todos os direitos reservados.</p>
+                                                </div> <!-- copyright -->
+                                            </div>
+                                        </div> <!-- row -->
+                                    </div> <!-- container -->
+                                </div> <!-- footer copyright -->
+                            </footer>
+
+                            <!--====== FOOTER PART ENDS ======-->
+
+                            <!--====== BACK TOP TOP PART START ======-->
+
+                            <a href="#" class="back-to-top"><i class="lni-chevron-up"></i></a>
+
+                            <!--====== BACK TOP TOP PART ENDS ======-->   
+
+                            <!-- Modal Aviso
+                            <div class="modal fade" id="myModalAviso" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                               <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title">Novidade Importante</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                                  <div class="modal-body">
+                                    <p>
+                                      Novidade para você: agora somos <span class="aviso">Brasil TecPar</span>
+                                      <br><br>
+                                      A TJNET, pensando em você, uniu forças com a Brasil TecPar para trazer os melhores serviços e soluções em Conectividade e TI para nossa região.
+                                      <br><br>
+                                      Saiba mais acessando: <a class="aviso" target="_blank" href="https://www.brasiltecpar.com.br/post/5aquisicoes">https://www.brasiltecpar.com.br/post/5aquisicoes</a>
+                                      <br><br>
+                                      Aguarde novidades em serviços e não esqueça: nossos canais de comunicação e nossas equipes continuam as mesmas.
+                                      <br><br>
+                                      Ficou com alguma dúvida, venha nos visitar em nossas lojas. Aqui você sempre será bem vindo!
+                                      <br><br>
+                                      0800 970 9767<br>
+                                      <span class="aviso"> contato@redetjnet.com.br</span>
+                                      </p>
+                                      <br>
+                                      <a target="_blank" href="https://www.brasiltecpar.com.br/post/5aquisicoes">
+                                        <img align="right" width="50%" src="assets/images/brtechpar.svg" />
+                                      </a>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <a target="_blank" href="https://www.brasiltecpar.com.br/post/5aquisicoes">
+                                      <button type="button" class="btn btn-primary">Saiba Mais</button>
+                                    </a>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Ok</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          -->
+
+                            <!-- Modal Select-->
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                               <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title">Cidade Escolhida</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                                  <div class="modal-body">
+                                    <div id="infoCidade" align="center"></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <!-- Modal Planos-->
+                            <div class="modal fade" id="myModalPlanos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                               <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title">Seleção de Cidade</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                                  <div class="modal-body">
+                                    <p>
+                                    Procure o campo de seleção de cidade no menu de navegação no topo da página! 
+                                    Assim você terá acesso aos planos mais indicados para sua região.
+                                    </p>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Ok</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <input type="hidden" id="botaoModal" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" value="Open">
+                            
+                            <!-- Modal Aviso Trigger
+                            <input type="hidden" id="botaoModal2" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModalAviso" value="Open">
+                            -->
+
+                          </div>
+
+                          <div align="center">
+                            <div class="wrapper">
+                              <img src="assets/images/logo vermelha.svg" alt="">
+                              <div class="content">
+                                <header>Consentimento de Cookies</header>
+                                <p>Este site utiliza de cookies para garantir-lhe uma melhor experiência de navegação.<br>
+                                  Caso continue entendemos que você está de acordo com nossa Política de Privacidade.<br><br>
+                                  A TJNET está adequada a nova LGPD.</p>
+                                  <div class="buttons">
+                                    <button class="item">Concordo</button>
+                                    <a href="assets/docs/politica_privacidade.pdf" target="_blank" class="item">Saiba Mais</a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                          <div align="center">
+                            </div>
+
+                          </body>
+                          </html>
+
+
+                          <script type="text/javascript">
+                            var teste = 0;
+
+                            function eventFire(el, etype){
+                              if (el.fireEvent) {
+                                el.fireEvent('on' + etype);
+                              } else {
+                                var evObj = document.createEvent('Events');
+                                evObj.initEvent(etype, true, false);
+                                el.dispatchEvent(evObj);
+                              }
+                            }
+
+                            function bodyAviso(){
+                              eventFire(document.getElementById('botaoModal2'), 'click');
+                            }
+
+                            function mostraCidade(){
+                              var cidade = document.getElementById('selectid').value
+                              var nome = "";
+                              var img = "";
+                              var endereco = "";
+                              var link = "";
+                              if(cidade != "Selecione"){
+                                if(cidade == "Coxim-MS"){
+                                  nome = "Coxim";
+                                  img = "'assets/images/cidades/cxm.svg'";
+                                  endereco = "Av. Virgínia Ferreira, 907<br>Flávio Garcia, 79400-000";
+                                  link = "'cxm.php'";
+                                }
+                                if(cidade == "Rio Verde de Mato Grosso-MS"){
+                                  nome = "Rio Verde";
+                                  img = "'assets/images/cidades/rv.svg'";
+                                  endereco = "Rua Porfirio Gonçalves, 921 B<br>Centro, 79480-000";
+                                  link = "'rv.php'";
+                                }
+                                if(cidade == "Pedro Gomes-MS"){
+                                  nome = "Pedro Gomes";
+                                  img = "'assets/images/cidades/pgm.svg'";
+                                  endereco = "Rua Diamantino, 44<br>Centro, 79410-000";
+                                  link = "'pgm.php'";
+                                }
+                                if(cidade == "Costa Rica-MS"){
+                                  nome = "Costa Rica";
+                                  img = "'assets/images/cidades/crc.svg'";
+                                  endereco = "Av. José Ferreira da Costa, 1434<br>Centro, 79550-000";
+                                  link = "'crc.php'";
+                                }
+                                if(cidade == "São Gabriel do Oeste-MS"){
+                                  nome = "São Gabriel";
+                                  img = "'assets/images/cidades/sgo.svg'";
+                                  endereco = "Av. Getúlio Vargas, 209<br>Centro, 79490-000";
+                                  link = "'sgo.php'";
+                                }
+                                document.getElementById("infoCidade").innerHTML = 
+                                "<div id='meApague' class='col-lg-7 col-md-9 col-sm-4 fade-in' onclick=location.href="+link+" style='cursor: pointer;'><div class='single-features text-center mt-20'><div class='features-icon'><img src="+img+" width='60%'></div><div class='features-content'><h4 class='features-title'><a href="+link+">"+nome+"</a></h4><p class='text'>"+endereco+"</p><div class='features-btn rounded-buttons'><a class='main-btn rounded-one' href="+link+">CLIQUE AQUI</a></div></div></div></div>";
+                                eventFire(document.getElementById('botaoModal'), 'click');
+                              }else{
+
+                              }
+
+                            }
+                            const divBlur = document.querySelectorAll(".blur");
+                            const cookieBox = document.querySelector(".wrapper");
+                            acceptBtn = cookieBox.querySelector("button");
+                            acceptBtn.onclick = ()=>{
+                      //setting cookie for 1 month, after one month it'll be expired automatically
+                      document.cookie = "Cookie Site TJNET=TJNET; max-age="+60*60*24*30;
+                      if(document.cookie){ //if cookie is set
+                        cookieBox.classList.add("hide");
+                        setTimeout(() => { cookieBox.remove(); }, 100);
+                        //bodyAviso();
+                        for (var i = 0; i < divBlur.length; i++) {
+                          divBlur[i].classList.remove("blur");
+                        }
+                         //hide cookie box
+                      }else{ //if cookie not set then alert an error
+                        alert("Cookie não salvo! Por favor, desbloqueie este site nas configurações de seu navegador.");
+                      }
+                    }
+                    let checkCookie = document.cookie.indexOf("Cookie Site TJNET=TJNET"); //checking our cookie
+                    //if cookie is set then hide the cookie box else show it
+                    if (checkCookie != -1){
+                      cookieBox.classList.add("hide");
+                      cookieBox.remove();
+                      teste = 1;
+                      //bodyAvisoTest(teste);
+
+                      for (var i = 0; i < divBlur.length; i++) {
+                        divBlur[i].classList.remove("blur");
+                      }
+                    }else{
+                      cookieBox.classList.remove("hide");
+                    }
+
+                    /*function bodyAvisoTest(teste){
+                      if(teste == 1){
+                        setTimeout(() => { bodyAviso(); }, 1000);
+                      }
+                    }
+                    */
+                  </script>
+
+                  <!--====== jquery js ======-->
+                  <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
+                  <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
+
+                  <!--====== Bootstrap js ======-->
+                  <script src="assets/js/bootstrap.min.js"></script>
+                  <script src="assets/js/popper.min.js"></script>
+
+
+                  <!--====== Images Loaded js ======-->
+                  <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+
+                  <!--====== Scrolling Nav js ======-->
+                  <script src="assets/js/jquery.easing.min.js"></script>
+                  <script src="assets/js/scrolling-nav.js"></script>
+
+
+                  <!--====== Slick js ======-->
+                  <script src="assets/js/slick.min.js"></script>
+
+
+                  <!--====== Main js ======-->
+                  <script src="assets/js/main.js"></script>
+
+                </body>
+
+                </html>
